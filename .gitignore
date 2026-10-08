@@ -1,0 +1,24 @@
+# Dependencias de Node.js (Backend y Frontend)
+node_modules/
+dist/
+build/
+.npm/
+
+# Entornos virtuales y dependencias de Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de entorno y secretos
+.env
+.env.local
+
+# Pesos de modelos grandes (no subimos gigas a GitHub)
+lunar_model_weights/
+nasa_lunar_repo/
+
+# Archivos de SO
+.DS_Store
+Thumbs.db
