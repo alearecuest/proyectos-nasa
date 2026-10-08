@@ -1,4 +1,4 @@
-# 🚀 Proyectos NASA - Portfolio
+# Proyectos NASA - Portfolio
 
 Este repositorio centraliza una serie de proyectos Full-Stack e Inteligencia Artificial, desarrollados utilizando modelos fundacionales, APIs y datos abiertos de la NASA y Hugging Face.
 
@@ -56,9 +56,30 @@ Esta sección simula la predicción de eventos climáticos espaciales (llamarada
 ### Estado Actual del Proyecto
 End-to-end completado. Flujo de datos continuo y visualización analítica en tiempo real operativa.
 
-## Área 3: Earth Science NLP (Próximamente)
-*   **Modelos a utilizar:** Indus-Retriever (`nasa-smd-ibm-st-v2`), `ibm-nasa-geospatial`.
-*   **Objetivo:** Construir un motor de búsqueda semántica de documentos científicos de la NASA y APIs de clasificación de observación terrestre (ej. cicatrices de incendios).
+---
+
+## Área 3: Earth Science NLP
+
+Esta sección implementa un Motor de Búsqueda Semántica diseñado para recuperar literatura y documentos científicos, simulando el comportamiento del modelo de lenguaje fundacional **Indus-Retriever (`nasa-smd-ibm-st-v2`)**.
+
+### Arquitectura de NLP Implementada
+
+1.  **Microservicio de Búsqueda (Python / FastAPI):**
+    *   **Directorio:** `earth-science-nlp/nlp-models`
+    *   **Responsabilidad:** Actúa como el motor vectorial. Recibe consultas en lenguaje natural, simula la vectorización del texto (*embeddings*) y realiza una búsqueda de similitud (similitud del coseno) contra una base de datos de papers de la NASA, devolviendo el Top 3 de resultados más relevantes.
+    *   **Tecnologías:** Python, FastAPI, Pydantic.
+2.  **API Gateway (Node.js / Fastify):**
+    *   **Directorio:** `earth-science-nlp/nlp-api`
+    *   **Responsabilidad:** Valida los *payloads* del cliente, gestiona las políticas de CORS y enruta las consultas de texto plano hacia el microservicio de NLP en Python de forma asíncrona.
+    *   **Tecnologías:** Node.js, Fastify, Axios.
+3.  **Interfaz de Búsqueda (React / Vite):**
+    *   **Directorio:** `earth-science-nlp/nlp-dashboard`
+    *   **Responsabilidad:** Proporciona una UI minimalista centrada en la experiencia de usuario (UX). Permite el ingreso de consultas complejas y renderiza las tarjetas científicas recuperadas, destacando el porcentaje de similitud semántica y los metadatos de los documentos.
+    *   **Tecnologías:** React, Vite.
+
+### Estado Actual del Proyecto
+End-to-end completado. El usuario interactúa en lenguaje natural y la arquitectura orquesta la consulta hasta devolver objetos de datos estructurados basados en relevancia semántica.
 
 ---
+
 *Desarrollado por Alejandro Arévalo*

@@ -1,4 +1,3 @@
-# lunar-ai-tools/lunar-models/crater_detector.py
 import torch
 from fastapi import FastAPI, UploadFile, File
 from PIL import Image
