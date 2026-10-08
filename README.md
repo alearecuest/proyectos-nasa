@@ -6,7 +6,7 @@ El objetivo de este repositorio es demostrar la integración end-to-end de model
 
 ---
 
-## 🌑 Área 1: Lunar AI Tools
+## Área 1: Lunar AI Tools
 
 Esta sección se enfoca en la exploración y análisis de la superficie lunar mediante visión por computadora, consumiendo el **NASA-IBM Lunar Foundation Model**.
 
@@ -34,10 +34,27 @@ End-to-end completado. La imagen fluye desde el cliente React, atraviesa Fastify
 
 ---
 
-## Área 2: Space Weather & Heliophysics (Próximamente)
-*   **Modelos a utilizar:** Surya Heliophysics Model.
-*   **Datasets:** `surya-bench-solarwind`, `surya-bench-flare-forecasting`, `surya-bench-ar-segmentation`.
-*   **Objetivo:** Desarrollar sistemas de predicción de clima espacial y visualización de regiones activas solares utilizando series temporales y segmentación de imágenes.
+## Área 2: Space Weather & Heliophysics
+
+Esta sección simula la predicción de eventos climáticos espaciales (llamaradas solares) procesando flujos de datos en tiempo real inspirados en el modelo **Surya Heliophysics** y datos del Solar Dynamics Observatory.
+
+### Arquitectura de Datos en Tiempo Real Implementada
+
+1.  **Motor de Predicción (Python / FastAPI):** 
+    *   **Directorio:** `solar-weather-forecaster/solar-models`
+    *   **Responsabilidad:** Emula la inferencia de series temporales, generando métricas continuas de velocidad de viento solar y cálculo de probabilidad de llamaradas (Flare Risk).
+    *   **Tecnologías:** Python, FastAPI, Uvicorn.
+2.  **API Orquestadora (Node.js / Fastify):**
+    *   **Directorio:** `solar-weather-forecaster/solar-api`
+    *   **Responsabilidad:** Implementa un sistema de *polling* automático (vía `node-cron`) para ingerir los datos del modelo de IA cada 5 segundos, manteniendo un historial en memoria y sirviéndolo al cliente.
+    *   **Tecnologías:** Node.js, Fastify, Axios, Node-cron.
+3.  **Dashboard Analítico (React / Vite):**
+    *   **Directorio:** `solar-weather-forecaster/solar-dashboard`
+    *   **Responsabilidad:** Panel de control interactivo que consume la API y visualiza el historial de telemetría en tiempo real mediante gráficos dinámicos y alertas condicionales.
+    *   **Tecnologías:** React, Vite, Recharts.
+
+### Estado Actual del Proyecto
+End-to-end completado. Flujo de datos continuo y visualización analítica en tiempo real operativa.
 
 ## Área 3: Earth Science NLP (Próximamente)
 *   **Modelos a utilizar:** Indus-Retriever (`nasa-smd-ibm-st-v2`), `ibm-nasa-geospatial`.
